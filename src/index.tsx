@@ -1,7 +1,14 @@
-import React from 'react';
-import {render} from "react-dom";
+import React from "react";
+import { render } from "react-dom";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import ThemeProvider from "./theme/ThemeProvider";
 
 render(
-    <div>dasdsadsadasdsadas</div>,
-    document.getElementById('root')
-)
+  <BrowserRouter>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>,
+  document.getElementById("root"),
+);

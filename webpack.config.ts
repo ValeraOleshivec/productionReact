@@ -9,7 +9,6 @@ export default (env:BuildEnv)=>{
         build: path.resolve(__dirname,'build'),
         html: path.resolve(__dirname,'public','index.html')
     }
-    console.log(env.mode)
     const mode = env.mode || 'development'
     const PORT = env.port || 3000;
 
