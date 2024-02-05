@@ -38,6 +38,9 @@
     "has-flag": "^4.0.0",
     "hasown": "^2.0.0",
     "human-signals": "^2.1.0",
+    "i18next": "^23.8.2",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-http-backend": "^2.4.3",
     "import-local": "^3.1.0",
     "interpret": "^2.2.0",
     "is-core-module": "^2.13.1",
@@ -71,6 +74,7 @@
     "randombytes": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-i18next": "^14.0.3",
     "react-router-dom": "^6.2.1",
     "rechoir": "^0.7.1",
     "resolve": "^1.22.8",
@@ -102,6 +106,7 @@
     "wildcard": "^2.0.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.11.16",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
@@ -109,6 +114,7 @@
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "css-loader": "^6.10.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.8.0",
     "prettier": "3.2.4",
