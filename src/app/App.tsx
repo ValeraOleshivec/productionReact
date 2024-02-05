@@ -1,21 +1,21 @@
-import React, { Suspense } from "react";
-import "./styles/main.scss";
-import { Link, Route, Routes } from "react-router-dom";
-import { useTheme } from "app/Providers/ThemeProvider";
-import { AppRouter } from "app/Providers/router";
-import { classNames } from "shared/lib/classNames/classNames";
+import React from 'react';
+import './styles/index.scss';
+import {classNames} from "shared/lib/classNames/classNames";
+import {useTheme} from "app/providers/ThemeProvider";
+import {AppRouter} from "app/providers/router";
+import {Navbar} from "widgets/Navbar";
+
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme();
+   const { theme, toggleTheme } = useTheme();
 
-  return (
-    <div className={classNames("app", {}, [theme])}>
-      <button onClick={toggleTheme}>Change Theme</button>
-      <Link to={"/"}>Main</Link>
-      <Link to={"/about"}>About</Link>
-      <AppRouter />
-    </div>
-  );
+    return (
+        <div className={classNames('app', {}, [theme])}>
+            <Navbar />
+            <AppRouter />
+            <button onClick={toggleTheme}>TOGGLE</button>
+        </div>
+    );
 };
 
 export default App;
