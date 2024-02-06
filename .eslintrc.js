@@ -4,7 +4,7 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended'],
+    extends: ['plugin:react/recommended', 'airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended', 'plugin:i18next/recommended'],
     overrides: [
         {
             env: {
@@ -25,7 +25,7 @@ module.exports = {
             experimentalObjectRestSpread: true,
         },
     },
-    plugins: ['react'],
+    plugins: ['react', 'i18next', '@typescript-eslint'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -43,6 +43,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'warn',
         'no-underscore-dangle': 'off',
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'max-len': ['error', { ignoreComments: true }],
     },
     globals: {
         __IS_DEV__: true,
