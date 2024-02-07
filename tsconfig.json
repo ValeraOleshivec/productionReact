@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "ES5",
@@ -18,5 +18,9 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./src/app/types/global.d.ts",
+    "./config/jest/setupTests.ts"
+  ]
 }

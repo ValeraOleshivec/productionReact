@@ -2,10 +2,10 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
+import { Config } from 'jest';
+import path from 'path';
 
-import type { Config } from 'jest';
-
-const config: Config = {
+const config : Config = {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -23,6 +23,7 @@ const config: Config = {
     ],
     moduleDirectories: [
         'node_modules',
+        '<rootDir>src',
     ],
     moduleFileExtensions: [
         'js',
@@ -38,6 +39,11 @@ const config: Config = {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    moduleNameMapper: {
+        '\\.(s?css|less)$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
