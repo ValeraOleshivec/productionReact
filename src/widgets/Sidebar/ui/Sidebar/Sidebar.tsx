@@ -6,7 +6,7 @@ import { Button } from 'shared/ui/Button/Button';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
@@ -18,7 +18,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className,
             ])}
         >
-            <Button onClick={() => setCollapsed((prev) => !prev)}>Toggle</Button>
+            <Button
+                data-testid="sidebarButton"
+                onClick={() => setCollapsed((prev) => !prev)}
+            >
+                Toggle
+            </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lng} />
