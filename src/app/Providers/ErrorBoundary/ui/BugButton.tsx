@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 
@@ -13,7 +13,10 @@ export const BugButton = ({ className }: BugButtonProps) => {
     }, [error]);
 
     return (
-        <Button onClick={() => setError(true)} className={classNames('', {}, [className])}>
+        <Button
+            onClick={() => setError(true)}
+            className={classNames('', {}, [className])}
+        >
             throw error
         </Button>
     );

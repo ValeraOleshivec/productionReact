@@ -2,26 +2,28 @@ import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from 'widgets/PageError';
 import { PageLoader } from 'shared/ui/PageLoader';
 
-interface ErrorBoundaryProps{
-    children : ReactNode
+interface ErrorBoundaryProps {
+    children: ReactNode;
 }
 interface ErrorBoundaryState {
-    hasError: boolean
+    hasError: boolean;
 }
 
-export class
-ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error : Error) {
+    static getDerivedStateFromError(error: Error) {
         // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }
 
-    componentDidCatch(error : Error, errorInfo : ErrorInfo) {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         // You can also log the error to an error reporting service
         console.log(error, errorInfo);
     }
