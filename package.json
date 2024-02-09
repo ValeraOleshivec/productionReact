@@ -188,7 +188,6 @@
   "author": "",
   "license": "ISC",
   "loki": {
-    "chromeSelector": ".wrapper > *, #root > *, .story-decorator > *",
     "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
