@@ -17,7 +17,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
             onClick={() => setError(true)}
             className={classNames('', {}, [className])}
         >
-            throw error
+            {/*   */}
         </Button>
     );
 };
