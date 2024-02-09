@@ -5,6 +5,7 @@ import {
 } from '../../src/shared/config/storybook/decorators';
 import { Theme } from '../../src/app/Providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
+import i18n from 'shared/config/i18n/i18n';
 
 const preview: Preview = {
     parameters: {
