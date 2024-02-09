@@ -23,7 +23,6 @@ export const Primary: Story = {
     args: {
         children: 'Text',
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const Clear: Story = {
     args: {
