@@ -1,7 +1,13 @@
-import { Theme } from 'app/Providers/ThemeProvider';
+import {
+    Theme,
+    ThemeProvider,
+} from 'app/Providers/ThemeProvider';
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: any) => (
-    <div className={`app ${theme}`}>
-        <StoryComponent />
-    </div>
-);
+export const ThemeDecorator =
+    (theme: Theme) => (StoryComponent: any) => (
+        <ThemeProvider>
+            <div className={`app ${theme}`}>
+                <StoryComponent />
+            </div>
+        </ThemeProvider>
+    );

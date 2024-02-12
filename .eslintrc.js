@@ -21,6 +21,13 @@ module.exports = {
                 sourceType: 'script',
             },
         },
+        {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+            },
+        },
     ],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -31,7 +38,12 @@ module.exports = {
             experimentalObjectRestSpread: true,
         },
     },
-    plugins: ['react', 'i18next', '@typescript-eslint'],
+    plugins: [
+        'react',
+        'i18next',
+        '@typescript-eslint',
+        'react-hooks',
+    ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -58,7 +70,14 @@ module.exports = {
                 ignoreAttribute: ['data-testid'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 110 }],
+        'max-len': [
+            'error',
+            { ignoreComments: true, code: 110 },
+        ],
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
     },
     globals: {
         __IS_DEV__: true,

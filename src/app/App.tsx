@@ -1,13 +1,15 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import './styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useTheme } from 'app/Providers/ThemeProvider';
 import { AppRouter } from 'app/Providers/router';
+import { Modal } from 'shared/ui/Modal';
 
 function App() {
     const { theme } = useTheme();
+    const [isOpen, setIsOpen] = useState<boolean>();
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<div>Loading...</div>}>
