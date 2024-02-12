@@ -7,7 +7,7 @@ import i18nForTests from 'shared/config/i18n/i18nForTests';
 export interface renderWithRouterOptions {
     route?: string;
 }
-export function renderWithRouter(
+export function componentRender(
     component: ReactNode,
     options: renderWithRouterOptions = {},
 ) {
