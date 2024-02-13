@@ -42,12 +42,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                 isOpen={isAuthModal}
                 onClose={onToggleModal}
             >
-                Lorem ipsum dolor sit amet, consectetur
+                {t(`Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Adipisci commodi,
                 dignissimos fuga hic laudantium porro quos
                 totam. Amet blanditiis dolorum error facere
                 illo maxime odio quod reprehenderit! At,
-                natus tempora.
+                natus tempora.`)}
             </Modal>
         </div>
     );

@@ -10,5 +10,6 @@ export function createReduxStore(
             counter: counterReducer,
         },
         devTools: __IS_DEV__,
+        preloadedState: initialState,
     });
 }

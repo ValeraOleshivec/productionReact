@@ -23,4 +23,12 @@ describe('counterSlice.test', () => {
             ),
         ).toEqual({ value: 11 });
     });
+    test('work without state', () => {
+        expect(
+            counterReducer(
+                undefined,
+                counterActions.increment(),
+            ),
+        ).toEqual({ value: 1 });
+    });
 });
