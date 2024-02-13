@@ -194,6 +194,7 @@
   "author": "",
   "license": "ISC",
   "loki": {
+    "chromeSelector": "body",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

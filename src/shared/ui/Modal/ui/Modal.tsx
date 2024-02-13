@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/ui/Portal';
+import { useTheme } from 'app/Providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -28,6 +29,7 @@ export const Modal = (props: ModalProps) => {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+    const { theme } = useTheme();
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -61,24 +63,24 @@ export const Modal = (props: ModalProps) => {
     }, [isOpen, onKeyDown]);
 
     return (
-        // <Portal>
-        <div
-            className={classNames(cls.Modal, mods, [
-                className,
-            ])}
-        >
+        <Portal>
             <div
-                className={cls.overlay}
-                onClick={closeHandler}
+                className={classNames(cls.Modal, mods, [
+                    className,
+                ])}
             >
                 <div
-                    className={classNames(cls.content)}
-                    onClick={(e) => e.stopPropagation()}
+                    className={cls.overlay}
+                    onClick={closeHandler}
                 >
-                    {children}
+                    <div
+                        className={classNames(cls.content)}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
-        // </Portal>
+        </Portal>
     );
 };
