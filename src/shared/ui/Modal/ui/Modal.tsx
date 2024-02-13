@@ -12,11 +12,11 @@ import { Portal } from 'shared/ui/Portal/ui/Portal';
 import { useTheme } from 'app/Providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
-interface ModalProps {
+export interface ModalProps {
     className?: string;
     children: ReactNode;
-    isOpen: boolean;
-    onClose: () => void;
+    isOpen?: boolean;
+    onClose?: () => void;
 }
 const ANIMATION_DELAY = 300;
 
