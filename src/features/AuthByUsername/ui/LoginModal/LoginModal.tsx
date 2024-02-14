@@ -17,6 +17,7 @@ export const LoginModal = (props: LoginModalProps) => {
             className={classNames(cls.LoginModal, {}, [
                 className,
             ])}
+            lazy
             {...modalProps}
         >
             <LoginForm />

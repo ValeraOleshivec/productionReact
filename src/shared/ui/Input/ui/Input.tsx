@@ -4,6 +4,8 @@ import React, {
     InputHTMLAttributes,
     memo,
     SetStateAction,
+    useEffect,
+    useRef,
     useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -41,6 +43,7 @@ export const Input = memo((props: InputProps) => {
             (prev) => e?.target?.selectionStart || prev,
         );
     };
+
     return (
         <div
             className={classNames(cls.InputWrapper, {}, [

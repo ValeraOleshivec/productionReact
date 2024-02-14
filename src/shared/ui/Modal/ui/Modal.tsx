@@ -1,7 +1,6 @@
 import React, {
-    Dispatch,
+    lazy,
     ReactNode,
-    SetStateAction,
     useCallback,
     useEffect,
     useRef,
@@ -9,7 +8,6 @@ import React, {
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/ui/Portal';
-import { useTheme } from 'app/Providers/ThemeProvider';
 import cls from './Modal.module.scss';
 
 export interface ModalProps {
@@ -17,6 +15,7 @@ export interface ModalProps {
     children: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
 
@@ -24,12 +23,12 @@ export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose } = props;
     const [isClosing, setIsClosing] =
         useState<boolean>(false);
+    const [mount, setMount] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>();
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
-    const { theme } = useTheme();
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
@@ -48,6 +47,12 @@ export const Modal = (props: ModalProps) => {
         },
         [closeHandler],
     );
+    useEffect(() => {
+        if (isOpen) {
+            setMount(true);
+        }
+        return () => setMount(false);
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -61,6 +66,7 @@ export const Modal = (props: ModalProps) => {
             clearTimeout(timeRef.current);
         };
     }, [isOpen, onKeyDown]);
+    if (lazy && !mount) return null;
 
     return (
         <Portal>
