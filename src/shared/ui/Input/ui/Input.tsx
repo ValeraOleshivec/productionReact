@@ -18,7 +18,7 @@ type HTMLInputProps = Omit<
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string;
-    onChange?: Dispatch<SetStateAction<string>>;
+    onChange?: (value: string, key?: string) => void;
 }
 
 export const Input = memo((props: InputProps) => {

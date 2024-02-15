@@ -9,6 +9,7 @@
     "acorn-import-assertions": "^1.9.0",
     "ajv": "^6.12.6",
     "ajv-keywords": "^3.5.2",
+    "axios": "^1.6.7",
     "browserslist": "^4.22.3",
     "buffer-from": "^1.1.2",
     "caniuse-lite": "^1.0.30001583",
@@ -150,6 +151,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -190,7 +192,8 @@
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "storybook:test": "storybook dev -p 6006 -c ./config/.storybook",
-    "storybook:build": "storybook build -c ./config/.storybook"
+    "storybook:build": "storybook build -c ./config/.storybook",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
