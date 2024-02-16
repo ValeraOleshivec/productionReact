@@ -5,8 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 const ns = ['translation'];
 const supportedLngs = ['en', 'ru'];
-const resources = ns.reduce((acc, n) => {
-    supportedLngs.forEach((lng) => {
+const resources = ns.reduce((acc: Record<string, any>, n) => {
+    supportedLngs.forEach((lng: string) => {
         if (!acc[lng]) acc[lng] = {};
         acc[lng] = {
             ...acc[lng],
