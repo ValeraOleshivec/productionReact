@@ -163,6 +163,7 @@
     "sass": "^1.70.0",
     "sass-loader": "^14.1.0",
     "storybook": "^7.6.13",
+    "storybook-react-i18next": "^2.0.10",
     "style-loader": "^3.3.4",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",

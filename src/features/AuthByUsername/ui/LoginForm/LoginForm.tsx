@@ -7,8 +7,9 @@ import {
 } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/ui/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLoginState } from 'entities/User/model/selectors/getLoginState/getLoginState';
+import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
 import { loginByUsername } from 'entities/User/model/services/loginByUsername/loginByUsername';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
@@ -25,7 +26,7 @@ export const LoginForm = memo(
     ({ className }: LoginFormProps) => {
         const { t } = useTranslation();
         const dispatch = useDispatch();
-        const { username, password } =
+        const { username, password, isLoading, error } =
             useSelector(getLoginState);
 
         const onChangeHandler = useCallback(
@@ -47,6 +48,13 @@ export const LoginForm = memo(
                     className,
                 ])}
             >
+                <Text title={t('Форма авторизации')} />
+                {error && (
+                    <Text
+                        text={error}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
                 <Input
                     type="text"
                     placeholder={t('Имя пользователя')}
@@ -68,6 +76,7 @@ export const LoginForm = memo(
                     className={cls.loginBtn}
                     theme={ButtonTheme.OUTLINE}
                     onClick={onLoginClick}
+                    disabled={isLoading}
                 >
                     {t('Войти')}
                 </Button>

@@ -5,7 +5,7 @@ import {
 } from '../../src/shared/config/storybook/decorators';
 import { Theme } from '../../src/app/Providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
-import i18n from 'shared/config/i18n/i18n';
+import { TranslationDecorator } from '../../src/shared/config/storybook/decorators/TranslationDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -17,7 +17,19 @@ const preview: Preview = {
             },
         },
     },
-    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator],
+    decorators: [
+        StyleDecorator,
+        ThemeDecorator(Theme.LIGHT),
+        RouterDecorator,
+        TranslationDecorator,
+    ],
+    globals: {
+        locale: 'en',
+        locales: {
+            en: 'English',
+            ru: 'Russian',
+        },
+    },
 };
 
 export default preview;
